@@ -1,0 +1,14 @@
+{
+  "name": "flocking-midi-select-ng",
+  "version": "1.0.0",
+  "description": "Alternate MIDI device select for use with Flocking.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tony Atkins <tony@raisingthefloor.org>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "flocking": "2.0.0-dev.20181230T202050Z.a048e64"
+  }
+}
