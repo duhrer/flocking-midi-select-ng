@@ -1,12 +1,4 @@
-/*
- * Flocking UI MIDI Port Connector
- *   Copyright 2015, Colin Clark
- *
- * Dual licensed under the MIT and GPL Version 2 licenses.
- */
-
 /*global require*/
-
 var fluid = fluid || require("infusion");
 
 (function () {
@@ -19,6 +11,7 @@ var fluid = fluid || require("infusion");
             midiPortSelector: {
                 type: "flock.auto.ui.midiPortSelector",
                 options: {
+                    preferredDevice: "{midiConnector}.options.preferredDevice",
                     events: {
                         onPortSelected: "{midiConnector}.events.onPortSelected"
                     }

@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Flockquencer</title>
+    <title>"Next Gen" MIDI device selector demo.</title>
 
     <script src="node_modules/infusion/dist/infusion-all.js"></script>
     <script src="node_modules/flocking/dist/flocking-all.js"></script>
@@ -8,6 +8,7 @@
     <script src="node_modules/flocking/src/ui/midi/midi-port-selector/js/midi-port-selector.js"></script>
     <script src="node_modules/flocking/src/ui/midi/midi-connector/js/midi-connector.js"></script>
     <script src="src/js/auto-midi-system.js"></script>
+    <script src="src/js/select-box.js"></script>
     <script src="src/js/auto-midi-port-selector.js"></script>
     <script src="src/js/auto-midi-connector.js"></script>
 </head>
@@ -16,7 +17,9 @@
   <div class="midi-select-ng"></div>
 
   <script type="text/javascript">
-    var compy = flock.auto.ui.midiConnector(".midi-select-ng");
+    var compy = flock.auto.ui.midiConnector(".midi-select-ng", {
+        preferredDevice: "Launchpad"
+    });
   </script>
 
 </body>

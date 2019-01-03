@@ -1,10 +1,3 @@
-/*
- * Flocking UI MIDI Port Selector
- *   Copyright 2015, Colin Clark
- *
- * Dual licensed under the MIT and GPL Version 2 licenses.
- */
-
 /*global require, jQuery*/
 
 var fluid = fluid || require("infusion"),
@@ -19,6 +12,13 @@ var fluid = fluid || require("infusion"),
         implicitPorts: [{ id: false, name: "None" }],
 
         components: {
+            selectBox: {
+                type: "flock.auto.ui.selectBox",
+                options: {
+                    "preferredDevice": "{midiPortSelector}.options.preferredDevice"
+                }
+            },
+
             midiSystem: {
                 type: "flock.auto.midi.system"
             }
