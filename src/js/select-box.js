@@ -32,10 +32,10 @@ var fluid = fluid || require("infusion"),
             });
             if (matchingPort) {
                 that.applier.change("selection", matchingPort);
+                flock.ui.selectBox.selectElement(that.container, matchingPort.id);
             }
         }
-
-        if (that.model.selection) {
+        else if (that.model.selection) {
             flock.ui.selectBox.selectElement(that.container, that.model.selection.id);
         }
         else{
