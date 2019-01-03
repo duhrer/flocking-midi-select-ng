@@ -4,14 +4,19 @@
 
     <script src="node_modules/infusion/dist/infusion-all.js"></script>
     <script src="node_modules/flocking/dist/flocking-all.js"></script>
+    <script src="node_modules/flocking/src/ui/selectbox/js/selectbox.js"></script>
+    <script src="node_modules/flocking/src/ui/midi/midi-port-selector/js/midi-port-selector.js"></script>
+    <script src="node_modules/flocking/src/ui/midi/midi-connector/js/midi-connector.js"></script>
     <script src="src/js/auto-midi-system.js"></script>
+    <script src="src/js/auto-midi-port-selector.js"></script>
+    <script src="src/js/auto-midi-connector.js"></script>
 </head>
 <body>
 
-  <p>Testing ideas with flock.midi.system, not a real demo.</p>
+  <div class="midi-select-ng"></div>
 
   <script type="text/javascript">
-    var compy = flock.auto.midi.system();
+    var compy = flock.auto.ui.midiConnector(".midi-select-ng");
   </script>
 
 </body>
