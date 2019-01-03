@@ -39,7 +39,7 @@ var fluid = fluid || require("infusion");
 }());
 
 flock.auto.ui.midiConnector.fireEventIfPortValid = function (that) {
-    var selectedId = fluid.get(that, "midiPortSelector.selectBox.model.selection.id");
+    var selectedId = fluid.get(that, "midiPortSelector.selectBox.model.selection");
     if (selectedId) {
         that.events.onValidPortSelected.fire();
     }
