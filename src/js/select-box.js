@@ -25,21 +25,23 @@ var fluid = fluid || require("infusion"),
     });
 
     flock.auto.ui.selectBox.selectInitial = function (that) {
-        if (!that.model.selection && that.options.preferredDevice) {
-            var matchingPort = fluid.find(that.model.options, function (portDef) {
-                var portName = fluid.get(portDef, "name");
-                return portName === that.options.preferredDevice ? portDef : undefined;
-            });
-            if (matchingPort) {
-                that.applier.change("selection", matchingPort);
-                flock.ui.selectBox.selectElement(that.container, matchingPort.id);
+        if (that.model.options.length) {
+            if (!that.model.selection && that.options.preferredDevice) {
+                var matchingPort = fluid.find(that.model.options, function (portDef) {
+                    var portName = fluid.get(portDef, "name");
+                    return portName === that.options.preferredDevice ? portDef : undefined;
+                });
+                if (matchingPort) {
+                    that.applier.change("selection", matchingPort);
+                    flock.ui.selectBox.selectElement(that.container, matchingPort.id);
+                }
             }
-        }
-        else if (that.model.selection) {
-            flock.ui.selectBox.selectElement(that.container, that.model.selection.id);
-        }
-        else{
-            flock.ui.selectBox.selectFirstOption(that);
+            else if (that.model.selection) {
+                flock.ui.selectBox.selectElement(that.container, that.model.selection.id);
+            }
+            else{
+                flock.ui.selectBox.selectFirstOption(that);
+            }
         }
     };
 }());
