@@ -32,7 +32,7 @@ var fluid = fluid || require("infusion"),
                     return portName === that.options.preferredDevice ? portDef : undefined;
                 });
                 if (matchingPort) {
-                    that.applier.change("selection", matchingPort);
+                    that.applier.change("selection", matchingPort.id);
                     flock.ui.selectBox.selectElement(that.container, matchingPort.id);
                 }
             }
