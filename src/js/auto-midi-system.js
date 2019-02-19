@@ -12,11 +12,11 @@
     // modelise the ports ourselves until the underlying component does it for us:
     // https://github.com/colinbdclark/Flocking/blob/dd6a9c405658ab11b5b177e2f252a3039c84aece/src/web/midi.js#L340
     flock.auto.midi.system.modelisePorts = function (that) {
-        // expressly delete the entire existing value and replace with the current member variable.
-        fluid.fireChanges(that.applier, [
-            { path: "ports", type: "DELETE" },
-            { path: "ports", value: that.ports }
-        ]);
+        var transaction = that.applier.initiate();
+        transaction.fireChangeRequest({ path: "ports", type: "DELETE" });
+        transaction.fireChangeRequest({ path: "ports", value: that.ports });
+
+        transaction.commit();
     };
 
     fluid.defaults("flock.auto.midi.system", {

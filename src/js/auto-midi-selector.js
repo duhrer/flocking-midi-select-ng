@@ -90,7 +90,6 @@
                     model: {
                         options: "{flock.auto.midi.ui}.model.ports"
                     },
-
                     events: {
                         onSelect: "{flock.auto.midi.ui}.events.onPortSelected"
                     }
@@ -110,7 +109,6 @@
                             ]
                         }
                     },
-
                     events: {
                         aftertouch: "{flock.auto.midi.ui}.events.aftertouch",
                         control:    "{flock.auto.midi.ui}.events.control",

@@ -25,7 +25,7 @@ var fluid = fluid || require("infusion"),
     });
 
     flock.auto.ui.selectBox.selectInitial = function (that) {
-        if (that.model.options.length) {
+        if (fluid.get(that, "model.options.length")) {
             if (!that.model.selection && that.options.preferredDevice) {
                 var matchingPort = fluid.find(that.model.options, function (portDef) {
                     var portName = fluid.get(portDef, "name");
@@ -37,7 +37,7 @@ var fluid = fluid || require("infusion"),
                 }
             }
             else if (that.model.selection) {
-                flock.ui.selectBox.selectElement(that.container, that.model.selection.id);
+                flock.ui.selectBox.selectElement(that.container, that.model.selection);
             }
             else{
                 flock.ui.selectBox.selectFirstOption(that);

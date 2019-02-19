@@ -9,7 +9,7 @@ var fluid = fluid || require("infusion"),
     fluid.defaults("flock.auto.ui.midiPortSelector", {
         gradeNames: ["flock.ui.midiPortSelector"],
 
-        implicitPorts: [{ id: false, name: "None" }],
+        implicitPorts: [{ id: 999, name: "None" }],
 
         components: {
             selectBox: {
@@ -36,9 +36,10 @@ var fluid = fluid || require("infusion"),
         var portType = that.options.portType + "s";
         var portsForType = fluid.copy(that.options.implicitPorts).concat(ports[portType]);
 
-        fluid.fireChanges(that.applier, [
-            { path: "ports", type: "DELETE" },
-            { path: "ports", value: portsForType }
-        ]);
+        var transaction = that.applier.initiate();
+        transaction.fireChangeRequest({ path: "ports", type: "DELETE" });
+        transaction.fireChangeRequest({ path: "ports", value: portsForType });
+
+        transaction.commit();
     };
 }());
